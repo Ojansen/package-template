@@ -1,0 +1,38 @@
+{
+  "name": "package-template",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+[REPO URL].git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "[REPO URL]/issues"
+  },
+  "homepage": "[REPO URL]#readme",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rm -rf dist",
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
+    "lint": "biome lint --error-on-warnings",
+    "check": "biome check --write",
+    "release": "pnpm run clean && pnpm run lint && pnpm run test && pnpm run build && changelogen --release && npm publish && git push --follow-tags"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@rollup/plugin-typescript": "^12.1.1",
+    "@types/node": "^22.9.1",
+    "@vitest/coverage-v8": "2.1.5",
+    "rollup": "^4.27.3",
+    "tslib": "^2.8.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.5"
+  }
+}
